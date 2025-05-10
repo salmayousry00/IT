@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -15,10 +16,7 @@ a:hover {
         body {
             display: flex;
             justify-content: space-evenly;
-            /* margin-top: 100px; */
-
-        }
-
+            
         img {
             height: 300px;
             width: auto;
@@ -27,19 +25,14 @@ a:hover {
         }
 
         .bookcontainer {
-             margin-top: 100px;
-             margin-left: auto;
-             margin-right: auto;
             background-color: #f0f0f0;
             padding: 15px;
             border-radius: 10px;
             width: fit-content;
-            
-
+            margin-top: 300px;
         }
 
         .title {
-            font-weight: bold;
             font-size: 20px;
             text-align: center;
             color: #B8001F;
@@ -75,16 +68,12 @@ a:hover {
             width: 100px;
             transition: background-color 0.3s ease, transform 0.2s ease;
             font-size: 15px;
-
-
         }
 
         .buy:hover {
-
             background-color: #FCFAEE;
             color: #384B70;
             transform: scale(1.05);
-
         }
     </style>
 
@@ -94,119 +83,112 @@ a:hover {
     <header>
     <h1><a href="C:\Users\user\OneDrive\Desktop\it projrct\html\project1\ITproject\home\home.html" class="logo"> C S A </a></h1>    
   </header>
+  <div class="books"></div>
     <div class="bookcontainer" id="frontend-book">
         <img src="C:\Users\user\Downloads\front-removebg-preview.png" alt="frontend book">
-        <p class="title">FrontEnd Book</p>
+        <h1 class="title">FrontEnd Book</h1>
         <p class="description">A quick guide to learning website interface design<br> using HTML, CSS, and JavaScript.
         </p>
-        <p class="price">price:<span>499.99</span> LE</p>
-        <form >
+        <p class="price">Price:<span>499.99</span> LE</p>
+        <form>
             <input type="number" max="100" min="1" class="num">
-            <input type="submit" class="buy" value="Add to cart">
-            
-
+            <button type="button" class="buy">Add to cart</button>
         </form>
     </div>
-    </div>
+
     <div class="bookcontainer" id="backend-book">
         <img src="C:\Users\user\Downloads\back-removebg-preview.png" alt="Backend book">
-        <p class="title">BackEnd Book</p>
+        <h1 class="title">BackEnd Book</h1>
         <p class="description">A beginner-friendly guide to building server-side<br> apps, connecting databases,
             and creating secure<br> APIs using backend tools like Node.js or Python.</p>
-        <p class="price">price:<span>499.99</span> LE</p>
-        <form >
-            <input   type="number" max="100" min="1" class="num">
-            <input type="submit" class="buy" value="Add to cart">
-            
-
+        <p class="price">Price:<span>799.99</span> LE</p>
+        <form>
+            <input type="number" max="100" min="1" class="num">
+            <button type="button" class="buy">Add to cart</button>
         </form>
     </div>
-    </div>
+
     <div class="bookcontainer" id="basics-book">
         <img src="C:\Users\user\Downloads\basics-removebg-preview.png" alt="programming basics book">
-        <p class="title">Programming Basics Book</p>
+        <h1 class="title">Programming Basics Book</h1>
         <p class="description">An easy-to-follow guide for beginners to learn<br> the fundamentals of programming,
             including<br> variables, loops, conditionals, and basic<br> problem-solving using simple code examples.
 
         </p>
-        <p class="price">price:<span>499.99</span> LE</p>
+        <p class="price">Price:<span>399.99</span> LE</p>
         <form>
             <input type="number" max="100" min="1" class="num">
-            <input type="submit" class="buy" value="Add to cart">
+            <button type="button" class="buy">Add to cart</button>
             
-
         </form>
     </div>
     </div>
 
-
-
-
-
     <script>
-    // Frontend book
-    document.querySelector("#frontend-book .buy").onclick = function (event) {
-        event.preventDefault();
+        // Frontend book
+        document.querySelector("#frontend-book .buy").onclick = function () {
 
-        let container = document.getElementById("frontend-book");
-        let price = +container.querySelector("span").textContent;
-        let qty = +container.querySelector(".num").value;
+            let container = document.getElementById("frontend-book");
+            let price = +container.querySelector("span").textContent;
+            let qty = +container.querySelector(".num").value;
 
-        if (qty <= 0 || isNaN(qty)) {
-            alert("Please enter a valid quantity (at least 1)");
-            return;
-        }
+            if (qty <= 0 || isNaN(qty)) {
+                alert("Please enter a valid quantity (at least 1)");
+                return;
+            }
 
-        let total = price * qty;
-        let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
+            let total = (price * qty).toFixed(2);
+            let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
 Total price: ${total}`);
 
-        if (confirmbuy) {
-            alert("Added successfully");
-        }
-    };
+            if (confirmbuy) {
+                alert("Added successfully");
+            }
+        };
 
-    // Backend book
-    document.querySelector("#backend-book .buy").onclick = function (event) {
-        event.preventDefault();
+        // Backend book
+        document.querySelector("#backend-book .buy").onclick = function () {
 
-        let container = document.getElementById("backend-book");
-        let price = +container.querySelector("span").textContent;
-        let qty = +container.querySelector(".num").value;
+            let container = document.getElementById("backend-book");
+            let price = +container.querySelector("span").textContent;
+            let qty = +container.querySelector(".num").value;
 
-        if (qty <= 0 || isNaN(qty)) {
-            alert("Please enter a valid quantity (at least 1)");
-            return;
-        }
+            if (qty <= 0 || isNaN(qty)) {
+                alert("Please enter a valid quantity (at least 1)");
+                return;
+            }
 
-        let total = price * qty;
-        let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
+            let total = price * qty;
+            let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
 Total price: ${total}`);
 
-        if (confirmbuy) {
-            alert("Added successfully");
-        }
-    };
+            if (confirmbuy) {
+                alert("Added successfully");
+            }
+        };
 
-    // Programming basics book
-    document.querySelector("#basics-book .buy").onclick = function (event) {
-        event.preventDefault();
+        // Programming basics book
+        document.querySelector("#basics-book .buy").onclick = function () {
 
-        let container = document.getElementById("basics-book");
-        let price = +container.querySelector("span").textContent;
-        let qty = +container.querySelector(".num").value;
+            let container = document.getElementById("basics-book");
+            let price = +container.querySelector("span").textContent;
+            let qty = +container.querySelector(".num").value;
 
-        if (qty <= 0 || isNaN(qty)) {
-            alert("Please enter a valid quantity (at least 1)");
-            return;
-        }
+            if (qty <= 0 || isNaN(qty)) {
+                alert("Please enter a valid quantity (at least 1)");
+                return;
+            }
 
-        let total = price * qty;
-        let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
+            let total = (price * qty).toFixed(2);
+            let confirmbuy = confirm(`Are you sure you want to add ${qty} Books to the cart ? 
 Total price: ${total}`);
 
-        if (confirmbuy) {
-            alert("Added successfully");
-        }
-    };
-</script>
+            if (confirmbuy) {
+                alert("Added successfully");
+            }
+        };
+    </script>
+</body>
+
+</html>
+
